@@ -3,12 +3,13 @@
  * _print_rev_recursion - prints a string in reverse.
  * @s: String to be printed
  */
-void_print_rev_recursion(char *s)
+void _print_rev_recursion(char *s)
 {
 	if (*s == '\0')
-		return;
 	{
-		_print_rev_recursion(s + 1);
-		_putchar(*s);
+		return;
 	}
+       	_print_rev_recursion(s+1);
+	
+	putchar(*s);
 }
