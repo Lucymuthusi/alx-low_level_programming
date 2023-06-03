@@ -1,14 +1,11 @@
 #include <stdio.h>
+#include "lists.h"
 /**
  * first - prints a sentence before the main
  * function is executed
  */
-void printtext()
+void first(void)
 {
-       	printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
-}
-int main()
-{
-	printtext();
-	return (0);
+	printf("You're beat! and yet, you must allow,\n");
+	printf("I bore my house upon my back!\n");
 }
