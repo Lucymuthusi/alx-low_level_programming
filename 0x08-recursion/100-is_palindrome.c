@@ -1,7 +1,9 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int check_pal(char *s, int i, int len);
-int_strlen_recursion(char *s);
+int _strlen_recursion(char *s);
 
 /**
  * is_palindrome - checks if a string is a palindrome
@@ -20,7 +22,7 @@ int is_palindrome(char *s)
  * @s: string to calculate the length of
  * Return: length of the string
  */
-int_strlen_recursion(char *s)
+int _strlen_recursion(char *s)
 {
 	if (*s == '\0')
 		return (0);
