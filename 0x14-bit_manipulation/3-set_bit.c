@@ -8,13 +8,13 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
+	 unsigned long int mask = 1UL << index;
+	 *n |= mask;
 	if (index >= sizeof(unsigned long int) * 8)
 	{
 		printf("Error: Index out of range\n");
 		return (-1);
 	}
-	unsigned long int mask = 1UL << index;
-	*n |= mask;
 	return (1);
 }
 
