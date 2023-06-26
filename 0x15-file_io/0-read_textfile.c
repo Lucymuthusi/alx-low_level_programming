@@ -14,18 +14,19 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *buf = malloc(letters + 1);
+	ssize_t num_letters_read = 0;
+	char letter;
 	FILE *fp = fopen(filename, "r");
-	size_t n = fread(buf, 1, letters, fp);
 
-	if (filename == NULL || fp == NULL)
+	if (filename == NULL)
 		return (0);
-	if (n < letters)
+	if (fp == NULL)
+		return (0);
+	while (num_letters_read < (ssize_t)letters && (letter = fgetc(fp)) != EOF)
 	{
-		buf[n] = '\0';
+		write(STDOUT_FILENO, &letter, 1);
+		num_letters_read++;
 	}
-	write(STDOUT_FILENO, buf, n);
 	fclose(fp);
-	free(buf);
-	return (n);
+	return (num_letters_read);
 }
