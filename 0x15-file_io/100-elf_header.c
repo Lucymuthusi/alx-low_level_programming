@@ -102,13 +102,13 @@ void print_data(unsigned char *e_ident)
 			break;
 		case ELFDATA2LSB:
 			printf("2's complement, little endian\n");
-			break;
-		case ELFDATA2MSB:
-			printf("2's complement, big endian\n");
-			break;
-		default:
-			printf("<unknown: %x>\n", e_ident[EI_CLASS]);
-	}
+    break;
+        case ELFDATA2MSB:
+                printf("2's complement, big endian\n");
+                break;
+        default:
+                printf("<unknown: %x>\n", e_ident[EI_CLASS]);
+        }
 }
 
 /**
@@ -117,18 +117,18 @@ void print_data(unsigned char *e_ident)
  */
 void print_version(unsigned char *e_ident)
 {
-	printf("  Version:                           %d",
-			e_ident[EI_VERSION]);
+        printf("  Version:                           %d",
+               e_ident[EI_VERSION]);
 
-	switch (e_ident[EI_VERSION])
-	{
-		case EV_CURRENT:
-			printf(" (current)\n");
-			break;
-		default:
-			printf("\n");
-			break;
-	}
+        switch (e_ident[EI_VERSION])
+        {
+        case EV_CURRENT:
+                printf(" (current)\n");
+                break;
+        default:
+                printf("\n");
+                break;
+        }
 }
 
 /**
@@ -137,13 +137,13 @@ void print_version(unsigned char *e_ident)
 */
 void print_osabi(unsigned char *e_ident)
 {
-	printf("  OS/ABI:                            ");
+        printf("  OS/ABI:                            ");
 
-	switch (e_ident[EI_OSABI])
-	{
-		case ELFOSABI_NONE:
-			printf("UNIX - System V\n");
-			break;
+        switch (e_ident[EI_OSABI])
+        {
+        case ELFOSABI_NONE:
+                printf("UNIX - System V\n");
+                break;
 		case ELFOSABI_HPUX:
 			printf("UNIX - HP-UX\n");
 			break;
@@ -237,7 +237,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
 
-	
+
 	if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
 	else
@@ -293,7 +293,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (r == -1)
 	{
 		free(header);
-		close_elf(o);                         
+		close_elf(o);
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
